@@ -5,22 +5,25 @@ $('button#searchButton').on('click', function(){
 
   $.ajax({
     url: 'https://wordsapiv1.p.mashape.com/words/'+ searchQuery +'/antonyms', // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
-    type: 'GET', 
+    type: 'GET',
     data: {},
     dataType: 'json',
     success: function(data) {
-      searchQuery = data["antonyms"][0];
-      var audio = new Audio('marley.mp3');
-      audio.play();
-      
+      antonym = data["antonyms"][0];
+      if (searchQuery === "sad") {
+        var audio = new Audio('marley.mp3');
+        audio.play();
+        $('h1').html('<span class="rainbow">watermelon.</span>');
+      };
+
       var call = function() {
         $.ajax({
-         url: 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=' + searchQuery,
+         url: 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=' + antonym,
          method: 'GET',
          success: function(response, status){
            $(".result").html("<hr style='width: 300px;'><br><center><img style='width:480px;height:340px;' src="+ response["data"]["image_url"] +"></center>")
          }
-        }) 
+        })
       }
 
       call()
@@ -33,7 +36,7 @@ $('button#searchButton').on('click', function(){
     xhr.setRequestHeader("X-Mashape-Authorization", "GFfpHTISarmshcNMsm0DKrHqWHIZp1tALGMjsnkKs3YeYaWnlu"); // Enter here your Mashape key
     }
   });
-  
+
   // $.ajax({
   //  url: 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=' + searchQuery,
   //  method: 'GET',
@@ -50,7 +53,7 @@ $('#searchInput').on('keydown', function(e){
     var searchQuery = $('#searchInput').val()
     $('#searchInput').val("")
 
-  
+
     $.ajax({
      url: 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=' + searchQuery,
      method: 'GET',

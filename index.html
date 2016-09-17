@@ -3,6 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
+  <style>
+  #footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+  }
+
+  .rainbow {
+    background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+    background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  </style>
   <title>watermelon</title>
 </head>
 <body>
@@ -22,14 +41,16 @@
 </form>
     </center>
   </div>
-  
+
   <br>
- 
+
 <div class="result">
 </div>
-  
+
 <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="app.js"></script>
 
 </body>
+
+<div id="footer">Made with ❤︎ by <a href="https://github.com/jasondecastro">Jason DeCastro</a> and <a href="http://francisroc.co">Francis Rocco</a></div>
 </html>
