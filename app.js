@@ -21,7 +21,7 @@ $('button#searchButton').on('click', function(){
          url: 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=' + antonym,
          method: 'GET',
          success: function(response, status){
-           $(".result").html("<hr style='width: 300px;'><br><center><img style='width:480px;height:340px;' src="+ response["data"]["image_url"] +"></center>")
+           $(".result").html("<hr style='width: 300px;'><br><center><img style='width:50%;height:33%;' src="+ response["data"]["image_url"] +"></center>")
          }
         })
       }
